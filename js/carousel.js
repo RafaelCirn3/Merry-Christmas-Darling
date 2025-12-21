@@ -2,27 +2,33 @@ const items = document.querySelectorAll('.carousel-item');
 const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
+const finalAction = document.getElementById('final-action');
+const loveBtn = document.getElementById('love-btn');
+const countdown = document.getElementById('countdown');
+
 let current = 0;
 
 function showItem(index) {
   items.forEach(item => item.classList.remove('active'));
   items[index].classList.add('active');
 
-  // mostra o contador somente no último card
-  const countdown = document.getElementById('countdown');
-
+  // Se chegou ao último card
   if (index === items.length - 1) {
-    countdown.classList.remove('hidden');
+    finalAction.classList.remove('hidden');
     setTimeout(() => {
-      countdown.classList.add('visible');
-    }, 100);
-  } else {
-    countdown.classList.remove('visible');
-    countdown.classList.add('hidden');
-  }
-}
+      finalAction.classList.add('visible');
+    }, 100); document.querySelector('.carousel').classList.add('locked');
+} else {
+  finalAction.classList.remove('visible');
+  finalAction.classList.add('hidden');
 
-// eventos dos botões
+  document.querySelector('.carousel').classList.remove('locked');
+
+  countdown.classList.remove('visible');
+  countdown.classList.add('hidden');
+}}
+
+// navegação
 prev.addEventListener('click', () => {
   current = (current - 1 + items.length) % items.length;
   showItem(current);
@@ -31,6 +37,20 @@ prev.addEventListener('click', () => {
 next.addEventListener('click', () => {
   current = (current + 1) % items.length;
   showItem(current);
+});
+
+// botão final
+loveBtn.addEventListener('click', () => {
+  finalAction.classList.remove('visible');
+
+  setTimeout(() => {
+    finalAction.classList.add('hidden');
+
+    countdown.classList.remove('hidden');
+    setTimeout(() => {
+      countdown.classList.add('visible');
+    }, 100);
+  }, 600);
 });
 
 // inicializa

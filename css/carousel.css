@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .carousel {
   position: relative;
   max-width: 800px;
@@ -8,6 +14,9 @@
   transition: opacity 1.2s ease, transform 1.2s ease;
   transition-delay: 0.4s;
 }
+.carousel.locked {
+  pointer-events: none;
+}
 
 .content.visible .carousel {
   opacity: 1;
@@ -15,13 +24,17 @@
 }
 
 .carousel-item {
-  display: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
 }
-
 .carousel-item.active {
-  display: block;
+  position: relative;
+  opacity: 1;
+  pointer-events: auto;
 }
-
 .carousel-item .card {
   background: #fff;
   color: #000;
@@ -30,7 +43,16 @@
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.12),
     0 5px 15px rgba(0, 0, 0, 0.08);
-  animation: fadeUp 0.8s ease;
+
+  transform: translateY(12px);
+  opacity: 0;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  will-change: transform, opacity;
+}
+
+.carousel-item.active .card {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 @keyframes fadeUp {
@@ -91,4 +113,68 @@
 
 .next {
   right: -26px;
+}
+
+
+
+
+/* Estilo da finalização */
+
+.final-action {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+
+  z-index: 20;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: opacity 1.2s ease;
+}
+
+.final-action.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* BOTÃO */
+.love-btn {
+  background: #000;
+  color: #fff;
+  border: 1px solid #000;
+  padding: 22px 64px;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  border-radius: 40px;
+  transition: all 0.4s ease;
+  position: relative;
+  isolation: isolate;
+}
+
+/* glow sutil */
+.love-btn::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.2);
+  filter: blur(20px);
+  z-index: -1;
+}
+
+.love-btn:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.05);
+}
+
+.love-btn:active {
+  transform: scale(0.97);
 }
