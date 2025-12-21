@@ -55,7 +55,7 @@
   pointer-events: auto;
 }
 
-.carous.carousel-item .card {
+.carousel-item .card {
   width: 100%;
   max-width: 1180px;
 
@@ -245,16 +245,23 @@
   transform: scale(0.96);
 }
 
-
 @media (max-width: 480px) {
-
   .carousel {
     margin: 60px auto;
     padding: 0 16px;
   }
 
-@media (max-width: 768px) {
+  .nav {
+    width: 46px;
+    height: 46px;
+    font-size: 1.6rem;
+  }
 
+  .prev { left: -10px; }
+  .next { right: -10px; }
+}
+
+@media (max-width: 768px) {
   .carousel-item .card {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -269,15 +276,4 @@
     font-size: 1.05rem;
     line-height: 1.7;
   }
-}
-
-
-  .nav {
-    width: 46px;
-    height: 46px;
-    font-size: 1.6rem;
-  }
-
-  .prev { left: -10px; }
-  .next { right: -10px; }
 }
