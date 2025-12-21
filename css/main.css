@@ -15,4 +15,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.6s ease, transform 1.6s ease;
+}
+/* quando ativado */
+.content.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
