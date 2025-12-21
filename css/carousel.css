@@ -75,6 +75,7 @@
     0 15px 35px rgba(0, 0, 0, 0.25);
 
   display: grid;
+
   grid-template-columns: 3fr 2fr; /* imagem | texto */
   align-items: stretch;
 
@@ -263,17 +264,18 @@
 
 @media (max-width: 768px) {
   .carousel-item .card {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* só imagem */
     min-height: auto;
-  }
+}
 
   .carousel-item img {
     height: 260px;
   }
 
   .card-text {
-    padding: 28px 24px;
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
+    padding: 24px 36px;
+    font-size: 1rem;
+    line-height: 1.6;
+  } 
 }
+
