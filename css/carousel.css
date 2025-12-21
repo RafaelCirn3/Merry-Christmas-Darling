@@ -22,29 +22,73 @@
   display: block;
 }
 
-.carousel img {
+.carousel-item .card {
+  background: #fff;
+  color: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.12),
+    0 5px 15px rgba(0, 0, 0, 0.08);
+  animation: fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.carousel-item img {
   width: 100%;
-  max-height: 450px;
+  height: 420px;
   object-fit: cover;
-  border-radius: 8px;
 }
 
-.carousel p {
-  margin-top: 20px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
 
+.card-text {
+  padding: 32px 40px;
+  font-size: 1.15rem;
+  line-height: 1.8;
+}
 .nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
-  color: #fff;
-  font-size: 2rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: #000;
+  font-size: 1.8rem;
   border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 5;
 }
 
-.prev { left: -40px; }
-.next { right: -40px; }
+.nav:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-50%) scale(1.05);
+}
+
+.nav:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.prev {
+  left: -26px;
+}
+
+.next {
+  right: -26px;
+}
