@@ -1,0 +1,41 @@
+.carousel {
+  position: relative;
+  max-width: 800px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.carousel-item {
+  display: none;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel img {
+  width: 100%;
+  max-height: 450px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.carousel p {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  color: #fff;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.prev { left: -40px; }
+.next { right: -40px; }

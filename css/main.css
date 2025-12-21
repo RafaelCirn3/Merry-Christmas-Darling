@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.hidden {
+  display: none;
+}
+
+.content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

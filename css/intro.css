@@ -1,0 +1,63 @@
+.shine-btn {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 18px 60px;
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(4px);
+}
+
+/* brilho sutil */
+.shine-btn::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 4px;
+  background: linear-gradient(120deg, transparent, #fff, transparent);
+  opacity: 0.2;
+  filter: blur(6px);
+  z-index: -1;
+}
+
+.shine-btn:hover {
+  letter-spacing: 6px;
+  border-color: #fff;
+}
+
+.shine-btn:active {
+  transform: scale(0.96);
+}
+
+.shine-btn:hover {
+  background: #000;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.intro {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Luz que se expande */
+.light-overlay {
+  position: absolute;
+  width: 200vmax;
+  height: 200vmax;
+  background: radial-gradient(circle, #fff 0%, #fff 40%, #000 60%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 2.2s ease-out, opacity 1.8s ease-out;
+  border-radius: 50%;
+}

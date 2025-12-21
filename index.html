@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shine</title>
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="css/carousel.css">
+  <link rel="stylesheet" href="css/countdown.css">
+</head>
+<body>
+
+  <!-- INTRO -->
+<section id="intro" class="intro">
+  <div class="light-overlay"></div>
+  <button id="shine-btn" class="shine-btn">Shine</button>
+</section>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main id="content" class="content hidden">
+
+    <!-- CARROSSEL -->
+    <section class="carousel">
+      <div class="carousel-item active">
+        <img src="assets/images/img1.jpg" alt="Imagem 1">
+        <p>Texto relacionado ao momento dessa imagem.</p>
+      </div>
+
+      <div class="carousel-item">
+        <img src="assets/images/img2.jpg" alt="Imagem 2">
+        <p>Outro texto, outra memória.</p>
+      </div>
+
+      <div class="carousel-item">
+        <img src="assets/images/img3.jpg" alt="Imagem 3">
+        <p>Mais um capítulo da história.</p>
+      </div>
+
+      <button class="nav prev">‹</button>
+      <button class="nav next">›</button>
+    </section>
+
+    <!-- CONTADOR -->
+    <section id="countdown" class="countdown hidden">
+      <div class="time">
+        <span id="days">00</span><small>Dias</small>
+      </div>
+      <div class="time">
+        <span id="hours">00</span><small>Horas</small>
+      </div>
+      <div class="time">
+        <span id="minutes">00</span><small>Minutos</small>
+      </div>
+        <div class="time">
+            <span id="seconds">00</span><small>Segundos</small>
+        </div>
+    </section>
+
+  </main>
+
+  <script src="js/intro.js"></script>
+  <script src="js/carousel.js"></script>
+  <script src="js/countdown.js"></script>
+</body>
+</html>
