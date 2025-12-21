@@ -6,10 +6,21 @@ body {
   margin: 0;
   overflow-x: hidden;
   overscroll-behavior: none;
+
   font-family: 'Helvetica Neue', Arial, sans-serif;
-  background: #000;
-  color: #fff;
+
+  background: radial-gradient(
+    circle at top,
+    #4a0f14 0%,
+    #2b0508 55%,
+    #140002 100%
+  );
+
+  color: rgba(255, 215, 160, 0.45);
+
+  -webkit-font-smoothing: antialiased;
 }
+/* Estados genéricos */
 .hidden {
   opacity: 0;
   visibility: hidden;
@@ -22,16 +33,23 @@ body {
   pointer-events: auto;
 }
 
+/* CONTEÚDO PRINCIPAL */
 .content {
   min-height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 1.6s ease, transform 1.6s ease;
+  transform: translateY(36px);
+
+  transition:
+    opacity 1.8s ease,
+    transform 1.8s ease;
 }
-/* quando ativado */
+
+/* Quando ativado */
 .content.visible {
   opacity: 1;
   transform: translateY(0);

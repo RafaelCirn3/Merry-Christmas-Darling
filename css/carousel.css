@@ -1,19 +1,33 @@
+/* RESET BASE */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/* =========================
+   CARROSSEL
+========================= */
+
 .carousel {
   position: relative;
-  max-width: 800px;
-  margin: 80px auto;
+
+  max-width: 1280px; /* cresce pros lados */
+  margin: 100px auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 24px;
+
   text-align: center;
+
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1.2s ease, transform 1.2s ease;
-  transition-delay: 0.4s;
+  transform: translateY(28px);
+  transition: opacity 1.4s ease, transform 1.4s ease;
 }
+
 .carousel.locked {
   pointer-events: none;
 }
@@ -23,110 +37,143 @@
   transform: translateY(0);
 }
 
+/* =========================
+   SLIDES
+========================= */
+
 .carousel-item {
   position: absolute;
   inset: 0;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.6s ease;
+  transition: opacity 0.7s ease;
 }
+
 .carousel-item.active {
   position: relative;
   opacity: 1;
   pointer-events: auto;
 }
-.carousel-item .card {
-  background: #fff;
-  color: #000;
-  border-radius: 16px;
+
+.carous.carousel-item .card {
+  width: 100%;
+  max-width: 1180px;
+
+  background: linear-gradient(
+    180deg,
+    #fffdfb 0%,
+    #f3e8e2 100%
+  );
+
+  color: #2b1b1b;
+
+  border-radius: 24px;
   overflow: hidden;
+
   box-shadow:
-    0 20px 40px rgba(0, 0, 0, 0.12),
-    0 5px 15px rgba(0, 0, 0, 0.08);
+    0 40px 80px rgba(0, 0, 0, 0.35),
+    0 15px 35px rgba(0, 0, 0, 0.25);
 
-  transform: translateY(12px);
+  display: grid;
+  grid-template-columns: 3fr 2fr; /* imagem | texto */
+  align-items: stretch;
+
+  min-height: 420px; /* controla verticalidade */
+
+  transform: translateY(16px);
   opacity: 0;
-  transition: transform 0.6s ease, opacity 0.6s ease;
-  will-change: transform, opacity;
-}
 
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
 .carousel-item.active .card {
   transform: translateY(0);
   opacity: 1;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* IMAGEM */
 .carousel-item img {
   width: 100%;
-  height: 420px;
+  height: 100%;
+
   object-fit: cover;
+  object-position: center;
+
+  display: block;
 }
-
-
+/* TEXTO */
 .card-text {
-  padding: 32px 40px;
-  font-size: 1.15rem;
-  line-height: 1.8;
+  padding: 36px 72px;
+
+  max-width: 900px;
+  margin: 0 auto;
+
+  font-size: 1.2rem;
+  line-height: 1.9;
+
+  color: #3a1e1e;
 }
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
 .nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 52px;
-  height: 52px;
+
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
-  color: #000;
-  font-size: 1.8rem;
+
+  background: rgba(255, 245, 235, 0.92);
+  color: #7a1c1c;
+
+  font-size: 2rem;
   border: none;
   cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
+
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.35);
+
+  transition: all 0.35s ease;
   z-index: 5;
 }
 
 .nav:hover {
-  background: #000;
+  background: #7a1c1c;
   color: #fff;
-  transform: translateY(-50%) scale(1.05);
+  transform: translateY(-50%) scale(1.08);
 }
 
 .nav:active {
   transform: translateY(-50%) scale(0.95);
 }
 
-.prev {
-  left: -26px;
-}
-
-.next {
-  right: -26px;
-}
+.prev { left: -30px; }
+.next { right: -30px; }
 
 
-
-
-/* Estilo da finalização */
+/* =========================
+   FINALIZAÇÃO
+========================= */
 
 .final-action {
   position: fixed;
   inset: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.08),
+    rgba(0, 0, 0, 0.85)
+  );
 
   z-index: 20;
 
@@ -134,7 +181,7 @@
   visibility: hidden;
   pointer-events: none;
 
-  transition: opacity 1.2s ease;
+  transition: opacity 1.4s ease;
 }
 
 .final-action.visible {
@@ -143,38 +190,94 @@
   pointer-events: auto;
 }
 
-/* BOTÃO */
+/* =========================
+   BOTÃO FINAL (PRESENTE)
+========================= */
 .love-btn {
-  background: #000;
+  background: linear-gradient(
+    135deg,
+    #7a1c1c,
+    #b03030
+  );
+
   color: #fff;
-  border: 1px solid #000;
-  padding: 22px 64px;
-  font-size: 1.4rem;
+  border: none;
+
+  padding: 26px 76px;
+  font-size: 1.55rem;
   letter-spacing: 2px;
+
   cursor: pointer;
-  border-radius: 40px;
-  transition: all 0.4s ease;
+  border-radius: 60px;
+
   position: relative;
   isolation: isolate;
+
+  box-shadow:
+    0 30px 60px rgba(176, 48, 48, 0.55);
+
+  transition: all 0.45s ease;
 }
 
-/* glow sutil */
+/* glow quente */
 .love-btn::after {
   content: "";
   position: absolute;
-  inset: -6px;
-  border-radius: 50px;
-  background: rgba(0, 0, 0, 0.2);
-  filter: blur(20px);
+  inset: -12px;
+
+  border-radius: 70px;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 160, 0.45),
+    transparent 70%
+  );
+
+  filter: blur(30px);
   z-index: -1;
 }
 
 .love-btn:hover {
-  background: #fff;
-  color: #000;
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .love-btn:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
+}
+
+
+@media (max-width: 480px) {
+
+  .carousel {
+    margin: 60px auto;
+    padding: 0 16px;
+  }
+
+@media (max-width: 768px) {
+
+  .carousel-item .card {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .carousel-item img {
+    height: 260px;
+  }
+
+  .card-text {
+    padding: 28px 24px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+}
+
+
+  .nav {
+    width: 46px;
+    height: 46px;
+    font-size: 1.6rem;
+  }
+
+  .prev { left: -10px; }
+  .next { right: -10px; }
 }
