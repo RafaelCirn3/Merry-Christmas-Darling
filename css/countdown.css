@@ -26,3 +26,65 @@
   font-size: 0.9rem;
   opacity: 0.7;
 }
+/* =========================
+   MENSAGEM FINAL
+========================= */
+
+.final-message {
+  text-align: center;
+
+  margin: 80px auto 120px;
+  padding: 0 24px;
+
+  max-width: 720px;
+
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1.6s ease, transform 1.6s ease;
+}
+
+.final-message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* TÍTULO */
+.final-message h2 {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 400;
+
+  letter-spacing: 1.5px;
+
+  color: rgba(255, 215, 160, 0.85);
+
+  margin-bottom: 20px;
+}
+
+/* TEXTO */
+.final-message p {
+  font-size: 1.05rem;
+  line-height: 1.9;
+
+  color: rgba(255, 215, 160, 0.55);
+
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* detalhe sutil de brilho */
+.final-message::after {
+  content: "";
+  display: block;
+
+  width: 120px;
+  height: 1px;
+
+  margin: 36px auto 0;
+
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 215, 160, 0.6),
+    transparent
+  );
+}

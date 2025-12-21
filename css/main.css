@@ -21,11 +21,11 @@ body {
       #2b0508 55%,
       #140002 100%
     );
-
-  color: #f6f1ee;
+  color: rgba(255, 215, 160, 0.75);
 
   -webkit-font-smoothing: antialiased;
 }
+
 /* Estados genéricos */
 .hidden {
   opacity: 0;
@@ -72,6 +72,4 @@ body {
       #2b0508 55%,
       #140002 100%
     );
-
-  color: #f6f1ee;
 }
