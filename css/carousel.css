@@ -12,8 +12,10 @@
 .carousel {
   position: relative;
 
-  max-width: 1280px; /* cresce pros lados */
-  margin: 100px auto;
+  max-width: 1280px;
+  width: 100%;
+
+  margin: 0 auto; /* REMOVE empurrão vertical */
 
   display: flex;
   align-items: center;
@@ -27,7 +29,6 @@
   transform: translateY(28px);
   transition: opacity 1.4s ease, transform 1.4s ease;
 }
-
 .carousel.locked {
   pointer-events: none;
 }
@@ -278,6 +279,10 @@
 }
 
 @media (max-width: 768px) {
+    .content {
+    justify-content: center;
+    padding: 24px 0;
+  }
   .carousel-item .card {
     grid-template-columns: 1fr; /* só imagem */
     min-height: auto;
