@@ -2,10 +2,10 @@
   position: relative;
   z-index: 2;
 
-  background: transparent;
-  color: #fdfdfd;
+  background: rgba(180, 20, 40, 0.25);
+  color: #fff5f7;
 
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 180, 200, 0.7);
 
   padding: 20px 64px;
   font-size: 1.6rem;
@@ -14,47 +14,50 @@
 
   cursor: pointer;
 
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
 
   transition: all 0.45s ease;
 
   isolation: isolate;
 }
 
-/* brilho dourado suave */
+
 .shine-btn::before {
   content: "";
   position: absolute;
-  inset: -6px;
+  inset: -8px;
 
-  border-radius: 6px;
+  border-radius: 10px;
 
   background: linear-gradient(
     120deg,
     transparent,
-    rgba(255, 215, 160, 0.35),
+    rgba(255, 120, 160, 0.45),
+    rgba(255, 215, 170, 0.45),
     transparent
   );
 
-  opacity: 0.25;
-  filter: blur(10px);
+  opacity: 0.5;
+  filter: blur(14px);
 
   z-index: -1;
 }
 
 .shine-btn:hover {
-  letter-spacing: 7px;
-  border-color: #ffd7a0;
+  letter-spacing: 8px;
+  border-color: #ffb6c9;
 }
 
 .shine-btn:active {
-  transform: scale(0.96);
+  transform: scale(0.95);
 }
 
 .shine-btn:hover {
-  background: rgba(0, 0, 0, 0.6);
-  color: #fff;
+  background: rgba(120, 0, 20, 0.6);
+  color: #ffffff;
 }
+
+/* ================= INTRO ================= */
 
 .intro {
   position: fixed;
@@ -62,8 +65,9 @@
 
   background: radial-gradient(
     circle at center,
-    #0f1a16 0%,
-    #000000 70%
+    #631422 0%,
+    #1b0509 45%,
+    #000000 80%
   );
 
   display: flex;
@@ -73,6 +77,8 @@
   overflow: hidden;
   z-index: 10;
 }
+
+
 .light-overlay {
   position: absolute;
 
@@ -81,9 +87,10 @@
 
   background: radial-gradient(
     circle,
-    rgba(255, 245, 220, 0.95) 0%,
-    rgba(255, 245, 220, 0.9) 35%,
-    rgba(0, 0, 0, 0.85) 60%
+    rgba(255, 220, 230, 0.95) 0%,
+    rgba(255, 190, 210, 0.85) 30%,
+    rgba(255, 215, 170, 0.6) 45%,
+    rgba(0, 0, 0, 0.9) 65%
   );
 
   transform: scale(0);
@@ -96,3 +103,52 @@
   border-radius: 50%;
 }
 
+.hearts {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  bottom: -20px;
+
+  font-size: 18px;
+  color: rgba(255, 150, 180, 0.9);
+
+  animation: floatHeart linear infinite;
+  filter: drop-shadow(0 0 6px rgba(255, 120, 160, 0.6));
+  opacity: 0;
+}
+
+/* variações */
+.heart:nth-child(odd) {
+  color: rgba(255, 190, 210, 0.9);
+}
+
+.heart:nth-child(3n) {
+  color: rgba(255, 215, 170, 0.85);
+}
+
+/* animação */
+@keyframes floatHeart {
+  0% {
+    transform: translateY(0) scale(0.6);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-50vh) scale(1);
+  }
+
+  100% {
+    transform: translateY(-110vh) scale(1.2);
+    opacity: 0;
+  }
+}

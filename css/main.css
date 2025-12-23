@@ -17,8 +17,8 @@ body {
     ),
     radial-gradient(
       circle at top,
-      #4a0f14 0%,
-      #2b0508 35%,
+      #68161d 0%,
+      #5e0c12 35%,
       #140002 100%
     );
   color: rgba(255, 215, 160, 0.75);
@@ -68,8 +68,8 @@ body {
     ),
     radial-gradient(
       circle at top,
-      #4a0f14 0%,
-      #2b0508 35%,
+      #791b23 0%,
+      #4e0a0f 35%,
       #140002 100%
     );
 }
