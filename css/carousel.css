@@ -12,7 +12,7 @@
 .carousel {
   position: relative;
 
-  max-width: 1280px; /* cresce pros lados */
+  max-width: 1280px; 
   margin: 100px auto;
 
   display: flex;
@@ -76,10 +76,10 @@
 
   display: grid;
 
-  grid-template-columns: 3fr 2fr; /* imagem | texto */
+  grid-template-columns: 3fr 2fr; 
   align-items: stretch;
 
-  height: 420px; /* controla verticalidade */
+  height: 420px; 
 
   transform: translateY(16px);
   opacity: 0;
@@ -157,6 +157,7 @@
 
   transition: all 0.35s ease;
   z-index: 5;
+  pointer-events: auto;
 }
 
 .nav:hover {
@@ -279,7 +280,7 @@
 
 @media (max-width: 768px) {
   .carousel-item .card {
-    grid-template-columns: 1fr; /* só imagem */
+    grid-template-columns: 1fr; 
     min-height: auto;
 }
 

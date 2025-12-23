@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Exo', sans-serif;
+}
+
+.context {
+    width: 100%;
+    position: absolute;
+    top: 50vh;
+}
+
+.context h1{
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+}
+
+.circles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* ELEMENTO BASE (♥) */
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    bottom: -150px;
+    animation: animate 25s linear infinite;
+}
+
+/* CORAÇÃO */
+.circles li::before{
+    content: "❤";
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 20px;
+    display: block;
+}
+
+
+/* VARIAÇÕES — mantém a lógica original */
+.circles li:nth-child(1){
+    left: 25%;
+}
+.circles li:nth-child(1)::before{
+    font-size: 80px;
+}
+
+.circles li:nth-child(2){
+    left: 10%;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+.circles li:nth-child(2)::before{
+    font-size: 20px;
+}
+
+.circles li:nth-child(3){
+    left: 70%;
+    animation-delay: 4s;
+}
+.circles li:nth-child(3)::before{
+    font-size: 20px;
+}
+
+.circles li:nth-child(4){
+    left: 40%;
+    animation-duration: 18s;
+}
+.circles li:nth-child(4)::before{
+    font-size: 60px;
+}
+
+.circles li:nth-child(5){
+    left: 65%;
+}
+.circles li:nth-child(5)::before{
+    font-size: 20px;
+}
+
+.circles li:nth-child(6){
+    left: 75%;
+    animation-delay: 3s;
+}
+.circles li:nth-child(6)::before{
+    font-size: 110px;
+}
+
+.circles li:nth-child(7){
+    left: 35%;
+    animation-delay: 7s;
+}
+.circles li:nth-child(7)::before{
+    font-size: 150px;
+}
+
+.circles li:nth-child(8){
+    left: 50%;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+.circles li:nth-child(8)::before{
+    font-size: 25px;
+}
+
+.circles li:nth-child(9){
+    left: 20%;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+.circles li:nth-child(9)::before{
+    font-size: 15px;
+}
+
+.circles li:nth-child(10){
+    left: 85%;
+    animation-duration: 11s;
+}
+.circles li:nth-child(10)::before{
+    font-size: 150px;
+}
+
+/* ANIMAÇÃO — mesma lógica */
+@keyframes animate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+    }
+}
