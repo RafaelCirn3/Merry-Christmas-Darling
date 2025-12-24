@@ -53,6 +53,9 @@ loveBtn.addEventListener('click', () => {
       countdown.classList.add('visible');
     }, 100);
   }, 600);
+
+  // Desbloquear o carrossel para permitir navegação novamente
+  document.querySelector('.carousel').classList.remove('locked');
 });
 
 // inicializa

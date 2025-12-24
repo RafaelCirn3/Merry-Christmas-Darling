@@ -1,59 +1,62 @@
-/* RESET BASE */
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* =========================
-   CARROSSEL
-========================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
 
 .carousel {
   position: relative;
-
   max-width: 1280px;
-  width: 100%;
-
-  margin: 0 auto; /* REMOVE empurrão vertical */
+  margin: 100px auto;
+  margin-top: 300px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   padding: 0 24px;
-
   text-align: center;
 
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 1.4s ease, transform 1.4s ease;
 }
+
+.content.visible .carousel {
+  animation: fadeInUp 1.6s ease forwards;
+}
+
 .carousel.locked {
   pointer-events: none;
 }
 
-.content.visible .carousel {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* =========================
-   SLIDES
-========================= */
 
 .carousel-item {
   position: absolute;
   inset: 0;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.7s ease;
 }
 
 .carousel-item.active {
   position: relative;
-  opacity: 1;
   pointer-events: auto;
+  animation: fadeInUp 0.9s ease forwards;
 }
 
 .carousel-item .card {
@@ -67,7 +70,6 @@
   );
 
   color: #2b1b1b;
-
   border-radius: 24px;
   overflow: hidden;
 
@@ -76,20 +78,10 @@
     0 15px 35px rgba(0, 0, 0, 0.25);
 
   display: grid;
-
-  grid-template-columns: 3fr 2fr; /* imagem | texto */
+  grid-template-columns: 3fr 2fr;
   align-items: stretch;
 
-  height: 420px; /* controla verticalidade */
-
-  transform: translateY(16px);
-  opacity: 0;
-
-  transition: transform 0.7s ease, opacity 0.7s ease;
-}
-.carousel-item.active .card {
-  transform: translateY(0);
-  opacity: 1;
+  height: 420px;
 }
 
 /* IMAGEM */
@@ -101,7 +93,6 @@
   object-position: center;
 
   display: block;
-
   position: relative;
 }
 
@@ -110,29 +101,26 @@
   position: absolute;
   bottom: 10px;
   right: 10px;
+
   background: rgba(0, 0, 0, 0.7);
   color: white;
+
   padding: 4px 8px;
   font-size: 14px;
   border-radius: 4px;
   z-index: 1;
 }
-/* TEXTO */
+
 .card-text {
   padding: 36px 72px;
-
   max-width: 900px;
   margin: 0 auto;
 
   font-size: 1.2rem;
   line-height: 1.9;
-
   color: #3a1e1e;
 }
 
-/* =========================
-   NAVEGAÇÃO
-========================= */
 .nav {
   position: absolute;
   top: 50%;
@@ -153,8 +141,7 @@
   align-items: center;
   justify-content: center;
 
-  box-shadow:
-    0 14px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
 
   transition: all 0.35s ease;
   z-index: 5;
@@ -173,10 +160,6 @@
 .prev { left: -30px; }
 .next { right: -30px; }
 
-
-/* =========================
-   FINALIZAÇÃO
-========================= */
 
 .final-action {
   position: fixed;
@@ -197,19 +180,14 @@
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-
-  transition: opacity 1.4s ease;
 }
 
 .final-action.visible {
-  opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  animation: fadeInUp 1.6s ease forwards;
 }
 
-/* =========================
-   BOTÃO FINAL (PRESENTE)
-========================= */
 .love-btn {
   background: linear-gradient(
     135deg,
@@ -230,13 +208,10 @@
   position: relative;
   isolation: isolate;
 
-  box-shadow:
-    0 30px 60px rgba(176, 48, 48, 0.55);
-
+  box-shadow: 0 30px 60px rgba(176, 48, 48, 0.55);
   transition: all 0.45s ease;
 }
 
-/* glow quente */
 .love-btn::after {
   content: "";
   position: absolute;
@@ -284,9 +259,9 @@
     padding: 24px 0;
   }
   .carousel-item .card {
-    grid-template-columns: 1fr; /* só imagem */
-    min-height: auto;
-}
+    grid-template-columns: 1fr;
+    height: auto;
+  }
 
   .carousel-item img {
     height: 260px;
@@ -296,6 +271,5 @@
     padding: 24px 36px;
     font-size: 1rem;
     line-height: 1.6;
-  } 
+  }
 }
-
