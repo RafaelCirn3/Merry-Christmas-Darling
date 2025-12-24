@@ -3,7 +3,6 @@ const prev = document.querySelector('.prev');
 const next = document.querySelector('.next');
 
 const finalAction = document.getElementById('final-action');
-const finalMessage = document.getElementById('final-message');
 const loveBtn = document.getElementById('love-btn');
 const countdown = document.getElementById('countdown');
 
@@ -43,7 +42,6 @@ next.addEventListener('click', () => {
 // botão final
 loveBtn.addEventListener('click', () => {
   finalAction.classList.remove('visible');
-  finalMessage.classList.add('visible');
 
   setTimeout(() => {
     finalAction.classList.add('hidden');
