@@ -254,6 +254,10 @@
 }
 
 @media (max-width: 768px) {
+    .content {
+    justify-content: center;
+    padding: 24px 0;
+  }
   .carousel-item .card {
     grid-template-columns: 1fr;
     height: auto;
