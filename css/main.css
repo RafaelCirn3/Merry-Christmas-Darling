@@ -56,13 +56,12 @@ body {
 /* CONTEÚDO PRINCIPAL */
 
 .content {
+  height: 130vh;
 
   display: flex;
   flex-direction: column;
-  justify-content: center; /* CENTRALIZA VERTICALMENTE */
+  justify-content: center;
   align-items: center;
-
-  padding: 40px 0; /* respiro elegante */
 
   opacity: 0;
   transform: translateY(36px);
